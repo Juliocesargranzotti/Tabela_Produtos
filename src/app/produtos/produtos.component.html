@@ -1,0 +1,62 @@
+<div class="row">
+  <div class="col-8 m-auto">
+
+
+    <form [formGroup]="formGroupClient">
+ <div class="mb-3">
+  <div class="display-6 text-center">
+      Cadastro De Clientes
+  </div>
+    </div>
+    <div class="mb-3">
+      <label for="name" class="form-label">Nome:</label>
+      <input type="text" formControlName="name" class="form-control" id="name" placeholder="nome">
+    </div>
+    <div class="mb-3">
+      <label for="price" class="form-label">Preço:</label>
+      <input type="price" formControlName="price" class="form-control" id="price" placeholder="price">
+    </div>
+    <div class="mb-3">
+      <label for="brand" class="form-label">Marca:</label>
+      <input type="brand" formControlName="brand" class="form-control" id="brand" placeholder="brand">
+    </div>
+    <div class="mb-3">
+      <label for="date" class="form-label">Fabricação:</label>
+      <input type="date" formControlName="date" class="form-control" id="date" placeholder="date">
+    </div>
+
+    <div class="mb-3 d-flex justify-content-end">
+      <button class="btn btn-primary" (click)="save()">Salvar</button>
+      <button class="btn btn-primary" (click)="clean()">Limpar</button>
+    </div>
+</form>
+
+
+</div>
+</div>
+
+
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Tipo</th>
+        <th scope="col">Preço</th>
+        <th scope="col">Marca</th>
+        <th scope="col">Fabricação</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let produtos of produtos">
+        <th scope="row">{{produtos.id}}</th>
+        <td>{{produtos.name}}</td>
+        <td>{{produtos.price}}</td>
+        <td>{{produtos.brand}}</td>
+        <td>{{produtos.date}}</td>
+        <td>
+          <button class="btn btn-primary me-1" (click)="edit(produtos)">Editar</button>
+          <button class="btn btn-primary" (click)="delete(produtos)">Excluir</button>
+      </td>
+      </tr>
+    </tbody>
+  </table>
